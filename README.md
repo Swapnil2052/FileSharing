@@ -21,3 +21,4 @@ This project is a file-sharing application built using Spring Boot. It includes 
 - There are two roles, ops user and client user, one can strictly upload the file while other can only list the files or download it.
 - Files of type pptx, docx, xlsx are only allowed to upload in this app.
 - JWT Auth is used, so user needs to pass the token in order to access their role functionalities.
+- Postman dump of every API call is attached with project for further illustrations.
