@@ -27,19 +27,18 @@ public class UsersService {
 //        return usersRepository.findUserByUsername(username);
 //    }
 
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Fetch user from the database
-        Users user = usersRepository.findUserByUsername(username);
-
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found with username: " + username);
-        }
-
-        // Return a UserDetails object with username, password, and authorities (roles)
-        return User.builder()
-                .username(user.getUsername())
-                .password(user.getPassword())
-                .roles(user.getRole())  // Make sure you handle the role properly here
-                .build();
-    }
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//
+//        Users user = usersRepository.findUserByUsername(username);
+//
+//        if (user == null) {
+//            throw new UsernameNotFoundException("User not found with username: " + username);
+//        }
+//
+//        return User.builder()
+//                .username(user.getUsername())
+//                .password(user.getPassword())
+//                .roles(user.getRole())
+//                .build();
+//    }
 }

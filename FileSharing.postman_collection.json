@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\":\"clientuser\",\r\n    \"password\":\"clientpw\",\r\n    \"role\":\"CLIENT_USER\"\r\n}",
+					"raw": "{\r\n    \"username\":\"opsuser\",\r\n    \"password\":\"opspw\",\r\n    \"role\":\"ROLE_OPS_USER\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,6 +42,79 @@
 			"response": []
 		},
 		{
+			"name": "SignIn opsUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"opsuser\",\r\n    \"password\":\"opspw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignIn clientUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"clientuser\",\r\n    \"password\":\"clientpw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Upload",
 			"request": {
 				"method": "POST",
@@ -49,6 +122,11 @@
 					{
 						"key": "Content-Type",
 						"value": "multipart/form-data",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvcHN1c2VyIiwiaWF0IjoxNzM0ODA4NDYzLCJleHAiOjE3MzQ4MjY0NjN9.8B3GXvrwK9t-1_qblqg1DvFF2q_qToyh6ol7_HlTvEG2c2pRfI3IMM-upaZK4A3Q4uv4lfm0e0SGrGcNRjPMdA",
 						"type": "text"
 					}
 				],
@@ -81,7 +159,13 @@
 			"name": "ListFiles",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGllbnR1c2VyIiwiaWF0IjoxNzM0ODA4NDc4LCJleHAiOjE3MzQ4MjY0Nzh9.Lid7-SMRDyoVqd-JMFX062jKpIYUGkYTGLjGj7OtiliYwSREX-IB7JgUlDNdLISAs4-p5zugx_ckHCjc7D8ksQ",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8080/client/files",
 					"protocol": "http",
@@ -101,9 +185,15 @@
 			"name": "Download",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGllbnR1c2VyIiwiaWF0IjoxNzM0ODA4NDc4LCJleHAiOjE3MzQ4MjY0Nzh9.Lid7-SMRDyoVqd-JMFX062jKpIYUGkYTGLjGj7OtiliYwSREX-IB7JgUlDNdLISAs4-p5zugx_ckHCjc7D8ksQ",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8080/client/download/2",
+					"raw": "http://localhost:8080/client/download/153",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -112,7 +202,7 @@
 					"path": [
 						"client",
 						"download",
-						"2"
+						"153"
 					]
 				}
 			},
