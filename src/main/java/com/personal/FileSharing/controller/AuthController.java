@@ -45,9 +45,6 @@ public class AuthController {
     public ResponseEntity<?>login(@RequestBody Users user){
 
         try {
-//            if (!passwordEncoder.matches(user.getPassword(), userDetails.getPassword())) {
-//                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentialss");
-//            }
             AuthenticationManager authenticationManager=authenticationConfiguration.getAuthenticationManager();
            Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
             UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
